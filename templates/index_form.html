@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block content %}
+<h1>Sign Up</h1>
+
+<form action="/" method="POST">
+    <table>
+        <tr>
+            <td>
+                <label for="user-name">Username</label>
+            </td>
+            <td>
+                <input type="text" name="user-name" id="user-name" {% if form_field %} value={{form_field[ 'username']}} {% endif %}> {% if errors %}<span class="errors"> {{ errors['username']}} </span>{% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="password">Password</label>
+            </td>
+            <td>
+                <input type="text" name="password" id="password"> {% if errors %}<span class="errors"> {{errors['password']}} </span>{% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="verify-pass">Verify Password</label>
+            </td>
+            <td>
+                <input type="text" name="verify-pass" id="verify-pass"> {% if errors %}<span class="errors"> {{errors['match_password']}} </span>{% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="email">Email (optional)</label>
+            </td>
+            <td>
+                <input type="text" name="email" id="email" {% if form_field %} value={{form_field[ 'email']}} {% endif %}> {% if errors %}<span class="errors"> {{errors['email']}} <span>{% endif %}
+            </td>
+    </tr>
+    </table>
+        <input type="submit">
+</form>
+
+{% endblock %}
