@@ -8,7 +8,7 @@
                 <label for="user-name">Username</label>
             </td>
             <td>
-                <input type="text" name="user-name" id="user-name" {% if form_field %} value={{form_field[ 'username']}} {% endif %}> {% if errors %}<span class="errors"> {{ errors['username']}} </span>{% endif %}
+                <input type="text" name="user-name" id="user-name" {% if form_fields %} value="{{form_fields['username']}}" {% endif %}> {% if errors %}<span class="errors"> {{ errors['username']}} </span>{% endif %}
             </td>
         </tr>
         <tr>
@@ -32,7 +32,7 @@
                 <label for="email">Email (optional)</label>
             </td>
             <td>
-                <input type="text" name="email" id="email" {% if form_field %} value={{form_field[ 'email']}} {% endif %}> {% if errors %}<span class="errors"> {{errors['email']}} <span>{% endif %}
+                <input type="text" name="email" id="email" {% if form_fields %} value="{{form_fields['email']}}" {% endif %}> {% if errors %}<span class="errors "> {{errors['email']}} <span>{% endif %}
             </td>
     </tr>
     </table>
