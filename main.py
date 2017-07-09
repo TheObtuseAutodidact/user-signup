@@ -1,4 +1,5 @@
 from flask import Flask, request, redirect, render_template
+import re
 
 app = Flask(__name__)
 
@@ -14,7 +15,9 @@ def is_valid(field):
 def is_valid_email(email):
     if not is_valid(email):
         return False
-    if "." not in email or "@" not in email or " " in email:
+    # if "." not in email or "@" not in email or " " in email:
+    regex = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+    if not re.search(regex, email):
         return False
     return True
 
